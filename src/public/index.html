@@ -284,12 +284,12 @@
         <thead>
           <tr>
             <th>EAN</th>
-            <th>Article</th>
-            <th>Category</th>
-            <th>Designation</th>
-            <th>Stock</th>
+            <th>Article Code</th>
+            <th>Rayon</th>
+            <th>Name</th>
+            <th>Quantity</th>
             <th>Status</th>
-            <th style="text-align:right">Price HT</th>
+            <th style="text-align:right">Price Ht</th>
           </tr>
         </thead>
         <tbody id="tbody"></tbody>
@@ -326,18 +326,13 @@
 
   <script>
     const FALLBACK = [
-      { ean: "3250390151234", article: "100432", category: "Grocery",  designation: "Wheat Flour T55 Francine 1kg",       availableStock: 150, stockDays: 12, priceHT: 1.15 },
-      { ean: "3155250000087", article: "200543", category: "Dairy",    designation: "Semi-Skimmed Milk GrandLait 1L",     availableStock: 320, stockDays: 8,  priceHT: 0.95 },
-      { ean: "3222471018241", article: "200912", category: "Dairy",    designation: "Unsalted Butter President 250g",     availableStock: 85,  stockDays: 4,  priceHT: 2.10 },
-      { ean: "3265478010294", article: "300122", category: "Meat",     designation: "Free-range Chicken Fillet 500g",    availableStock: 42,  stockDays: 2,  priceHT: 6.80 },
-      { ean: "3017620422003", article: "100871", category: "Grocery",  designation: "Nutella Chocolate Spread 400g",     availableStock: 110, stockDays: 15, priceHT: 2.85 },
-      { ean: "3168478100293", article: "250109", category: "Produce",  designation: "Golden Apples France Bag 1.5kg",    availableStock: 60,  stockDays: 3,  priceHT: 2.29 },
-      { ean: "3250390001092", article: "100914", category: "Grocery",  designation: "Panzani Elbow Pasta 1kg",           availableStock: 450, stockDays: 25, priceHT: 1.49 },
-      { ean: "3012345678901", article: "310045", category: "Beverage", designation: "Evian Natural Spring Water 1.5L",   availableStock: 200, stockDays: 10, priceHT: 0.79 },
-      { ean: "3098765432100", article: "410023", category: "Produce",  designation: "Organic Carrots 1kg",               availableStock: 30,  stockDays: 1,  priceHT: 1.89 },
-      { ean: "3076543219876", article: "500312", category: "Bakery",   designation: "Sourdough Bread Pain Poilâne 400g", availableStock: 18,  stockDays: 2,  priceHT: 4.20 },
-      { ean: "3045678912345", article: "600011", category: "Bakery",   designation: "Croissant au Beurre x6",            availableStock: 75,  stockDays: 6,  priceHT: 3.49 },
-      { ean: "3098123456789", article: "700099", category: "Meat",     designation: "Ground Beef 15% Fat 500g",          availableStock: 55,  stockDays: 3,  priceHT: 5.60 }
+      { id: "e1", ean: "3250390151234", articleCode: "100432", rayon: "Grocery", name: "Wheat Flour T55 Francine 1kg", quantity: 150, stockDays: 12, priceHt: 1.15, categoryName: "Grocery", storeId: "280ff743-7602-46c9-89cb-e3f2f90c1f33" },
+      { id: "e2", ean: "3155250000087", articleCode: "200543", rayon: "Dairy", name: "Semi-Skimmed Milk GrandLait 1L", quantity: 320, stockDays: 8, priceHt: 0.95, categoryName: "Dairy", storeId: "280ff743-7602-46c9-89cb-e3f2f90c1f33" },
+      { id: "e3", ean: "3222471018241", articleCode: "200912", rayon: "Dairy", name: "Unsalted Butter President 250g", quantity: 85, stockDays: 4, priceHt: 2.10, categoryName: "Dairy", storeId: "280ff743-7602-46c9-89cb-e3f2f90c1f33" },
+      { id: "e4", ean: "3265478010294", articleCode: "300122", rayon: "Meat", name: "Free-range Chicken Fillet 500g", quantity: 42, stockDays: 2, priceHt: 6.80, categoryName: "Meat", storeId: "280ff743-7602-46c9-89cb-e3f2f90c1f33" },
+      { id: "e5", ean: "3017620422003", articleCode: "100871", rayon: "Grocery", name: "Nutella Chocolate Spread 400g", quantity: 110, stockDays: 15, priceHt: 2.85, categoryName: "Grocery", storeId: "280ff743-7602-46c9-89cb-e3f2f90c1f33" },
+      { id: "e6", ean: "3168478100293", articleCode: "250109", rayon: "Produce", name: "Golden Apples France Bag 1.5kg", quantity: 60, stockDays: 3, priceHt: 2.29, categoryName: "Produce", storeId: "280ff743-7602-46c9-89cb-e3f2f90c1f33" },
+      { id: "e7", ean: "3250390001092", articleCode: "100914", rayon: "Grocery", name: "Panzani Elbow Pasta 1kg", quantity: 450, stockDays: 25, priceHt: 1.49, categoryName: "Grocery", storeId: "280ff743-7602-46c9-89cb-e3f2f90c1f33" }
     ];
 
     let all = [], sel = 'all', page = 1, perPage = 10, selEan = null;
@@ -347,15 +342,15 @@
 
     function stats() {
       document.getElementById('s-total').textContent = all.length;
-      const v = all.reduce((a, p) => a + p.availableStock * p.priceHT, 0);
+      const v = all.reduce((a, p) => a + p.quantity * p.priceHt, 0);
       document.getElementById('s-value').textContent = v.toLocaleString('fr-FR', { maximumFractionDigits: 2 }) + ' €';
-      document.getElementById('s-cats').textContent = new Set(all.map(p => p.category)).size;
+      document.getElementById('s-cats').textContent = new Set(all.map(p => p.rayon)).size;
       document.getElementById('s-alerts').textContent = all.filter(p => p.stockDays <= 3).length;
     }
 
     function pills() {
       const c = document.getElementById('pills');
-      [...new Set(all.map(p => p.category))].sort().forEach(r => {
+      [...new Set(all.map(p => p.rayon))].sort().forEach(r => {
         const b = document.createElement('button');
         b.className = 'pill'; b.dataset.r = r; b.textContent = r;
         b.onclick = () => pick(r, b);
@@ -374,8 +369,8 @@
     function filtered() {
       const q = document.getElementById('q').value.toLowerCase().trim();
       return all.filter(p => {
-        const rm = sel === 'all' || p.category === sel;
-        const sm = !q || p.designation.toLowerCase().includes(q) || p.ean.includes(q) || p.article.toLowerCase().includes(q);
+        const rm = sel === 'all' || p.rayon === sel;
+        const sm = !q || p.name.toLowerCase().includes(q) || p.ean.includes(q) || (p.articleCode && p.articleCode.toLowerCase().includes(q));
         return rm && sm;
       });
     }
@@ -398,12 +393,12 @@
       tbody.innerHTML = items.map(p => `
         <tr data-ean="${p.ean}" class="${p.ean === selEan ? 'sel' : ''}">
           <td class="mono">${p.ean}</td>
-          <td class="mono">${p.article}</td>
-          <td><span class="cat-badge">${p.category}</span></td>
-          <td title="${p.designation}">${p.designation}</td>
-          <td>${p.availableStock}</td>
+          <td class="mono">${p.articleCode || '—'}</td>
+          <td><span class="cat-badge">${p.rayon}</span></td>
+          <td title="${p.name}">${p.name}</td>
+          <td>${p.quantity}</td>
           <td><span class="stk ${stkClass(p.stockDays)}"><span class="stk-dot"></span>${stkLabel(p.stockDays)} (${p.stockDays}d)</span></td>
-          <td class="price">${p.priceHT.toFixed(2)} €</td>
+          <td class="price">${p.priceHt.toFixed(2)} €</td>
         </tr>`).join('');
 
       document.getElementById('pag-info').textContent = `${start + 1}–${Math.min(end, total)} of ${total}`;
