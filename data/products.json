@@ -1,0 +1,272 @@
+[
+  {
+    "ean": "3250390151234",
+    "article": "100432",
+    "category": "Grocery",
+    "designation": "Wheat Flour T55 Francine 1kg",
+    "availableStock": 150,
+    "stockDays": 12,
+    "priceHT": 1.15
+  },
+  {
+    "ean": "3155250000087",
+    "article": "200543",
+    "category": "Dairy",
+    "designation": "Semi-Skimmed Milk GrandLait 1L",
+    "availableStock": 320,
+    "stockDays": 8,
+    "priceHT": 0.95
+  },
+  {
+    "ean": "3222471018241",
+    "article": "200912",
+    "category": "Dairy",
+    "designation": "Unsalted Butter President 250g",
+    "availableStock": 85,
+    "stockDays": 4,
+    "priceHT": 2.10
+  },
+  {
+    "ean": "3265478010294",
+    "article": "300122",
+    "category": "Meat",
+    "designation": "Free-range Chicken Fillet 500g",
+    "availableStock": 42,
+    "stockDays": 2,
+    "priceHT": 6.80
+  },
+  {
+    "ean": "3017620422003",
+    "article": "100871",
+    "category": "Grocery",
+    "designation": "Nutella Chocolate Spread 400g",
+    "availableStock": 110,
+    "stockDays": 15,
+    "priceHT": 2.85
+  },
+  {
+    "ean": "3168478100293",
+    "article": "250109",
+    "category": "Produce",
+    "designation": "Golden Apples France Bag 1.5kg",
+    "availableStock": 60,
+    "stockDays": 3,
+    "priceHT": 2.29
+  },
+  {
+    "ean": "3250390001092",
+    "article": "100914",
+    "category": "Grocery",
+    "designation": "Panzani Elbow Pasta 1kg",
+    "availableStock": 450,
+    "stockDays": 25,
+    "priceHT": 1.49
+  },
+  {
+    "ean": "3222472008722",
+    "article": "200155",
+    "category": "Dairy",
+    "designation": "Elle & Vire Double Cream 50cl",
+    "availableStock": 95,
+    "stockDays": 6,
+    "priceHT": 1.89
+  },
+  {
+    "ean": "3265478010317",
+    "article": "300418",
+    "category": "Meat",
+    "designation": "Minced Beef Burger 15% Fat (x4)",
+    "availableStock": 35,
+    "stockDays": 2,
+    "priceHT": 5.40
+  },
+  {
+    "ean": "3270190023419",
+    "article": "250188",
+    "category": "Produce",
+    "designation": "Ready to Eat Avocados (Pack of 2)",
+    "availableStock": 50,
+    "stockDays": 2,
+    "priceHT": 1.99
+  },
+  {
+    "ean": "3045140105502",
+    "article": "100112",
+    "category": "Grocery",
+    "designation": "Taureau Aile Basmati Rice 1kg",
+    "availableStock": 180,
+    "stockDays": 14,
+    "priceHT": 2.45
+  },
+  {
+    "ean": "3155251201506",
+    "article": "200789",
+    "category": "Dairy",
+    "designation": "Danone Creamy Plain Yogurt (x12)",
+    "availableStock": 140,
+    "stockDays": 5,
+    "priceHT": 2.65
+  },
+  {
+    "ean": "3250391290312",
+    "article": "100224",
+    "category": "Grocery",
+    "designation": "Daddy Powdered Sugar 1kg",
+    "availableStock": 200,
+    "stockDays": 30,
+    "priceHT": 1.35
+  },
+  {
+    "ean": "3265470298101",
+    "article": "300890",
+    "category": "Meat",
+    "designation": "Herta Unsmoked Bacon Lardons 2x100g",
+    "availableStock": 75,
+    "stockDays": 7,
+    "priceHT": 1.75
+  },
+  {
+    "ean": "3168470001925",
+    "article": "250212",
+    "category": "Produce",
+    "designation": "Cavendish Bananas Extra (Bulk 1kg)",
+    "availableStock": 90,
+    "stockDays": 3,
+    "priceHT": 1.59
+  },
+  {
+    "ean": "3250392309105",
+    "article": "100654",
+    "category": "Grocery",
+    "designation": "Rustica Sunflower Oil 1L",
+    "availableStock": 160,
+    "stockDays": 18,
+    "priceHT": 1.99
+  },
+  {
+    "ean": "3222473009819",
+    "article": "200331",
+    "category": "Dairy",
+    "designation": "Galbani Mozzarella 125g",
+    "availableStock": 115,
+    "stockDays": 6,
+    "priceHT": 1.29
+  },
+  {
+    "ean": "3095750050012",
+    "article": "300445",
+    "category": "Deli",
+    "designation": "Herta Cooked Ham Le Bon Paris (4 Slices)",
+    "availableStock": 130,
+    "stockDays": 5,
+    "priceHT": 2.20
+  },
+  {
+    "ean": "3270190112458",
+    "article": "250410",
+    "category": "Produce",
+    "designation": "Red Cherry Tomatoes On The Vine 500g",
+    "availableStock": 65,
+    "stockDays": 3,
+    "priceHT": 1.80
+  },
+  {
+    "ean": "3250391512400",
+    "article": "100998",
+    "category": "Grocery",
+    "designation": "Carte Noire Ground Coffee Original 2x250g",
+    "availableStock": 105,
+    "stockDays": 22,
+    "priceHT": 5.95
+  },
+  {
+    "ean": "3222475010219",
+    "article": "200845",
+    "category": "Dairy",
+    "designation": "Matines Free Range Eggs (x12)",
+    "availableStock": 98,
+    "stockDays": 5,
+    "priceHT": 3.10
+  },
+  {
+    "ean": "3265471012492",
+    "article": "350102",
+    "category": "Seafood",
+    "designation": "Atlantic Salmon Fillets with Skin (x2)",
+    "availableStock": 28,
+    "stockDays": 1,
+    "priceHT": 8.90
+  },
+  {
+    "ean": "3270192301824",
+    "article": "250621",
+    "category": "Produce",
+    "designation": "Special Frying Potatoes Bag 5kg",
+    "availableStock": 75,
+    "stockDays": 10,
+    "priceHT": 4.50
+  },
+  {
+    "ean": "3017620404009",
+    "article": "100782",
+    "category": "Grocery",
+    "designation": "Nestle Dessert Dark Chocolate 200g",
+    "availableStock": 125,
+    "stockDays": 15,
+    "priceHT": 1.65
+  },
+  {
+    "ean": "3250390110415",
+    "article": "200445",
+    "category": "Dairy",
+    "designation": "President Grated Emmental Cheese 200g",
+    "availableStock": 190,
+    "stockDays": 9,
+    "priceHT": 1.85
+  },
+  {
+    "ean": "3265471013406",
+    "article": "350320",
+    "category": "Seafood",
+    "designation": "Fresh Cod Fillets 400g",
+    "availableStock": 22,
+    "stockDays": 1,
+    "priceHT": 9.20
+  },
+  {
+    "ean": "3168470002151",
+    "article": "250910",
+    "category": "Produce",
+    "designation": "Untreated Yellow Lemons 500g",
+    "availableStock": 80,
+    "stockDays": 4,
+    "priceHT": 1.25
+  },
+  {
+    "ean": "3045140103409",
+    "article": "100185",
+    "category": "Grocery",
+    "designation": "La Baleine Fine Table Salt 600g",
+    "availableStock": 210,
+    "stockDays": 60,
+    "priceHT": 0.85
+  },
+  {
+    "ean": "3250390098450",
+    "article": "200612",
+    "category": "Dairy",
+    "designation": "Bridelice UHT Liquid Cream 3x20cl",
+    "availableStock": 105,
+    "stockDays": 14,
+    "priceHT": 1.75
+  },
+  {
+    "ean": "3265478010553",
+    "article": "300612",
+    "category": "Meat",
+    "designation": "Pork Loin Chops (x4)",
+    "availableStock": 30,
+    "stockDays": 2,
+    "priceHT": 4.20
+  }
+]
