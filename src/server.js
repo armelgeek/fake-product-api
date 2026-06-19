@@ -45,7 +45,7 @@ const getPaginatedResponse = (products, req) => {
     }
   };
 };
-
+//api
 app.get('/products', (req, res) => {
   const products = getProducts();
   const responsePayload = getPaginatedResponse(products, req);
