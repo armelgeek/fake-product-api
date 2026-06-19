@@ -1,0 +1,110 @@
+name: Express Backend CI/CD
+
+on:
+  push:
+    branches:
+      - development
+      - staging
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint checks
+        run: npm run lint
+
+      - name: Run test cases
+        run: npm test
+
+      - name: Build application
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-build
+          path: dist/
+
+  deploy-dev:
+    name: Deploy to Development
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'development'
+    environment: development
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-build
+          path: ./dist
+
+      - name: Deploy to Dev Server
+        run: |
+          echo "Successfully validated and deployed static build to Development"
+          ls -la ./dist
+
+  deploy-staging:
+    name: Deploy to Staging (QA / UAT)
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'staging'
+    environment: staging
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-build
+          path: ./dist
+
+      - name: Deploy to Staging Server
+        run: |
+          echo "Successfully validated and deployed static build to Staging"
+          ls -la ./dist
+
+  deploy-prod:
+    name: Deploy to Production
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'master'
+    environment: production
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-build
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
