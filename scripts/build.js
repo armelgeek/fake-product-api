@@ -11,7 +11,6 @@ if (fs.existsSync(distDir)) {
   fs.rmSync(distDir, { recursive: true, force: true });
 }
 fs.mkdirSync(distDir);
-fs.mkdirSync(path.join(distDir, 'products'), { recursive: true });
 
 const productsJsonPath = path.join(dataDir, 'products.json');
 if (!fs.existsSync(productsJsonPath)) {
@@ -36,8 +35,8 @@ const finalJsonString = JSON.stringify(staticResponse, null, 2);
 fs.writeFileSync(path.join(distDir, 'products.json'), finalJsonString);
 console.log('✅ Fichier dist/products.json généré.');
 
-fs.writeFileSync(path.join(distDir, 'products', 'index.json'), finalJsonString);
-console.log('✅ Fichier dist/products/index.json généré.');
+fs.writeFileSync(path.join(distDir, 'products'), finalJsonString);
+console.log('✅ Fichier dist/products (sans extension) généré.');
 
 const indexHtmlPath = path.join(srcDir, 'public', 'index.html');
 if (fs.existsSync(indexHtmlPath)) {
