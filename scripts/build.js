@@ -32,11 +32,15 @@ const staticResponse = {
 
 const finalJsonString = JSON.stringify(staticResponse, null, 2);
 
+// Endpoint principal
 fs.writeFileSync(path.join(distDir, 'products.json'), finalJsonString);
 console.log('✅ Fichier dist/products.json généré.');
 
-fs.writeFileSync(path.join(distDir, 'products'), finalJsonString);
-console.log('✅ Fichier dist/products (sans extension) généré.');
+// Endpoint alternatif sous forme de sous-dossier
+const productsSubDir = path.join(distDir, 'products');
+fs.mkdirSync(productsSubDir, { recursive: true });
+fs.writeFileSync(path.join(productsSubDir, 'index.json'), finalJsonString);
+console.log('✅ Fichier dist/products/index.json généré.');
 
 const indexHtmlPath = path.join(srcDir, 'public', 'index.html');
 if (fs.existsSync(indexHtmlPath)) {
